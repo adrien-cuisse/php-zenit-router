@@ -342,15 +342,16 @@ final class RouterTest extends TestCase
 
 	#[Test]
 	#[TestDox('maps route to arrow function')]
-	public function match_boundCallback_correctOne(): void
+	#[DataProvider('methods')]
+	public function match_boundCallback_correctOne(Method $method): void
 	{
 		// given a route mapped to a callback
-		$route = self::route();
+		$route = self::route(method: $method);
 		$boundCallback = fn () => true;
 		$this->router->register($route, $boundCallback);
 
 		// when matching the route
-		$match = $this->router->match($route->method(), $route->schema());
+		$match = $this->router->match($method, $route->schema());
 
 		// then the bound callback should be the mapped one
 		assertThat($match->callback(), is($boundCallback));
