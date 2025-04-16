@@ -1,0 +1,11 @@
+
+# IDE junk
+.idea/
+
+vendor/
+
+*/**/*.log
+
+# Tests & coverage report
+tests/.phpunit.cache
+tests/coverage
