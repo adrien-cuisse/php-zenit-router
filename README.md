@@ -13,7 +13,7 @@ composer test && composer mutate
 ```
 
 
-## 👇 Usage example, naive scrambling algorithm and cube display
+## 👇 Usage example, basic routing and callback calling
 
 ```php
 <?php
